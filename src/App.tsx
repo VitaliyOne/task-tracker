@@ -1,7 +1,8 @@
 import React from 'react';
+import TaskTracker from './components/TaskTracker';
 
 const App = () => {
-  return <div>App</div>;
+  return <TaskTracker />;
 };
 
 export default App;

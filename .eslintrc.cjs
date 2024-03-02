@@ -65,7 +65,7 @@ const config = {
         singleQuote: true,
         trailingComma: 'none',
         jsxBracketSameLine: false,
-        endOfLine: 'lf',
+        endOfLine: 'crlf',
         jsxSingleQuote: false,
         printWidth: 100,
         arrowParens: 'always',
