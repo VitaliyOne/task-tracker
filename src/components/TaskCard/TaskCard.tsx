@@ -22,7 +22,15 @@ const TaskCard = (props: TaskCardProps) => {
   };
 
   return (
-    <Box component={Card} display="flex" flexDirection="row" gap={1} p={1} variant="outlined">
+    <Box
+      alignItems="center"
+      component={Card}
+      display="flex"
+      flexDirection="row"
+      gap={1}
+      p={1}
+      variant="outlined"
+    >
       <Checkbox value={isCompleted} onChange={onCheckboxChange} />
       <Stack flexGrow={1}>
         <Typography sx={textStyles}>{title}</Typography>

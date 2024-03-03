@@ -6,7 +6,17 @@ import TaskCard from '../TaskCard';
 
 const TaskList = () => {
   const [currentTab, setCurrentTab] = useState<FilterTab>(FilterTab.ALL);
-  const { tasks } = useAppSelector((state) => state.tasks);
+  const tasks = useAppSelector((state) => {
+    const { tasks } = state.tasks;
+    switch (currentTab) {
+      case FilterTab.ACTIVE:
+        return tasks.filter((task) => !task.isCompleted);
+      case FilterTab.FINISHED:
+        return tasks.filter((task) => task.isCompleted);
+      default:
+        return tasks;
+    }
+  });
 
   const onTabChange = (_: unknown, value: FilterTab) => {
     setCurrentTab(value);
