@@ -31,7 +31,7 @@ const TaskCard = (props: TaskCardProps) => {
       p={1}
       variant="outlined"
     >
-      <Checkbox value={isCompleted} onChange={onCheckboxChange} />
+      <Checkbox checked={isCompleted} onChange={onCheckboxChange} />
       <Stack flexGrow={1}>
         <Typography sx={textStyles}>{title}</Typography>
         <Typography color={(theme) => theme.palette.grey[600]} sx={textStyles} variant="body2">
