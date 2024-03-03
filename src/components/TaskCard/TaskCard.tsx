@@ -9,6 +9,8 @@ const TaskCard = (props: TaskCardProps) => {
   const { id, title, description, isCompleted } = props;
   const dispatch = useAppDispatch();
 
+  const textStyles = { textDecorationLine: isCompleted ? 'line-through' : 'none' };
+
   const onCheckboxChange = (_: React.ChangeEvent<HTMLInputElement>, value: boolean) => {
     dispatch(updateTask({ ...props, isCompleted: value }));
   };
@@ -23,8 +25,8 @@ const TaskCard = (props: TaskCardProps) => {
     <Box component={Card} display="flex" flexDirection="row" gap={1} p={1} variant="outlined">
       <Checkbox value={isCompleted} onChange={onCheckboxChange} />
       <Stack flexGrow={1}>
-        <Typography>{title}</Typography>
-        <Typography color={(theme) => theme.palette.grey[600]} variant="body2">
+        <Typography sx={textStyles}>{title}</Typography>
+        <Typography color={(theme) => theme.palette.grey[600]} sx={textStyles} variant="body2">
           {description}
         </Typography>
       </Stack>
