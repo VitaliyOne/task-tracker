@@ -1,12 +1,15 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { PersistGate } from 'redux-persist/integration/react';
 import TaskTracker from './components/TaskTracker';
-import { store } from './store';
+import { store, storePersistor } from './store';
 
 const App = () => {
   return (
     <Provider store={store}>
-      <TaskTracker />
+      <PersistGate loading={null} persistor={storePersistor}>
+        <TaskTracker />
+      </PersistGate>
     </Provider>
   );
 };
